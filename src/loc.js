@@ -28,9 +28,13 @@ const getFiles = (dirPath, options) => {
         return;
     }
 
-    const ignoreDirs = options.excludeDirs ? options.excludeDirs.split(',').map(dir => `${path.join(dirPath, dir)}/**`) : [];
+    const ignoreDirs = options.excludeDirs
+        ? options.excludeDirs.split(',').map(dir => `${path.join(dirPath, dir)}/**`)
+        : [];
 
-    const ignoreExtensions = options.excludeExtensions ? options.excludeExtensions.split(',').map(ext => `**/*.${ext}`) : [];
+    const ignoreExtensions = options.excludeExtensions
+        ? options.excludeExtensions.split(',').map(ext => `**/*.${ext}`)
+        : [];
 
     return glob.sync(`${dirPath}/**/*.*`, { ignore: [...ignoreDirs, ...ignoreExtensions] });
 }
