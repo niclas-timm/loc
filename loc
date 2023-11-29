@@ -1,0 +1,15 @@
+#! /usr/bin/env node
+
+const program = require('commander').program;
+const loc = require('./src/loc.js');
+
+program
+    .name('loc')
+    .argument('<path>', 'path to file or directory')
+    .option('--excludeDirs <pattern>', 'exclude files or directories matching pattern. Separate multiple patterns with a comma')
+    .option('--excludeExtensions <pattern>', 'exclude files with the given extensions. Separate multiple extensions with a comma')
+    .action((path, options) => {
+        loc(path, options);
+    });
+
+program.parse();
