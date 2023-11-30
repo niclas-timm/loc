@@ -5,9 +5,11 @@ const loc = require('./src/loc.js');
 
 program
     .name('loc')
-    .argument('<path>', 'path to file or directory')
-    .option('--excludeDirs <pattern>', 'exclude files or directories matching pattern. Separate multiple patterns with a comma')
-    .option('--excludeExtensions <pattern>', 'exclude files with the given extensions. Separate multiple extensions with a comma')
+    .argument('<path>', 'absolute path to the directory you want to count the lines of code in.')
+    .option('-d, --excludeDirs <pattern>', 'exclude files or directories matching pattern. Separate multiple patterns with a comma.')
+    .option('-e,--excludeExtensions <pattern>', 'exclude files with the given extensions. Separate multiple extensions with a comma.')
+    .option('-dd,--useDefaultIgnoreDirs', 'Use a set of default ignore patterns for directories that are commonly used across applications.')
+    .option('-de,--useDefaultIgnoreExt', 'Use a set of default ignore patterns for file extensions that are commonly used across applications.')
     .action((path, options) => {
         loc(path, options);
     });
