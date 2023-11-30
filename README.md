@@ -28,12 +28,14 @@ node loc absolue/path/to/your/project/directory {options}
 ### Options
 | Option                     | Description                                                  | Type     | Example                |
 |----------------------------|--------------------------------------------------------------|----------|------------------------|
-| -d, --excludeDirs          | A comma-separated list of directories you want to exclude. Files in these directories will not be counted. | `string` | -d "vendor,node_modules" |
-| -e,--excludeExtensions     | A comma-separated list of file extensions you want to exclude. | `string` | -e "woff,png"            |
-| -dd,--useDefaultIgnoreDirs | Instead of typing the directories you want to exclude manually, you can also use a preset of directories you *probably* want to ignore. You can find that list under `src/loc.js`. | `bool`   | `-dd`                  |
-| -de,--useDefaultIgnoreExt  | Instead of typing the file extensions you want to exclude manually, you can also use a preset of extensions you *probably* want to ignore. You can find that list under `src/loc.js`. | `bool`   | `-de`                  |
+| `-d, --excludeDirs`          | A comma-separated list of directories you want to exclude. Files in these directories will not be counted. | `string` | -d "vendor,node_modules" |
+| `-e,--excludeExtensions`     | A comma-separated list of file extensions you want to exclude. | `string` | -e "woff,png"            |
+| `-dd,--useDefaultIgnoreDirs` | Instead of typing the directories you want to exclude manually, you can also use a preset of directories you *probably* want to ignore. You can find that list under `src/loc.js`. | `bool`   | `-dd`                  |
+| `-de,--useDefaultIgnoreExt`  | Instead of typing the file extensions you want to exclude manually, you can also use a preset of extensions you *probably* want to ignore. You can find that list under `src/loc.js`. | `bool`   | `-de`                  |
 
-## Example
+## Examples
 ```bash
+node loc -dd -de -d "storage,bootstrap,cache" -e "js,css"
+
 node loc --useDefaultIgnoreDirs --useDefaultIgnoreExt --excludeDirs "storage,bootstrap,cache" --excludeExtensions "js,css"
 ```
